@@ -1,4 +1,4 @@
 {
-    "/admin/js/app.js": "/admin/js/app.js",
-    "/admin/css/app.css": "/admin/css/app.css"
+    "/dist/admin/js/app.js": "/dist/admin/js/app.js",
+    "/dist/admin/css/app.css": "/dist/admin/css/app.css"
 }

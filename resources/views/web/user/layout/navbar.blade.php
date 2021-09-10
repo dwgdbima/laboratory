@@ -48,10 +48,10 @@
                         <div class="site-branding mr-auto">
                             <a class="home-link" href="index.html" title="Labostica" rel="home">
                                 <img id="logo-img" class="img-center" style="width: 70px;"
-                                    src="{{asset('user/images/logo.png')}}" alt="logo-img">
+                                    src="{{asset('dist/user/images/logo.png')}}" alt="logo-img">
                                 <h5>
                                     LABORATORIUM <br>
-                                    FAKULTAS TEKNIK MINERAL
+                                    JURUSAN TEKNIK PERTAMBANGAN
                                 </h5>
                             </a>
                         </div><!-- site-branding end -->

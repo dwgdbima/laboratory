@@ -27,7 +27,7 @@
         }
     }
 </script>
-<script src="{{ mix('admin/js/app.js') }}"></script>
+<script src="{{ mix('dist/admin/js/app.js') }}"></script>
 
 @include('sweetalert::alert')
 @stack('scripts')

@@ -49,10 +49,10 @@
                         </div>
                         <div class="featured-content">
                             <div class="featured-title">
-                                <h5>Address</h5>
+                                <h5>Alamat</h5>
                             </div>
                             <div class="featured-desc">
-                                <p>457,Gourandai Los Angeles, USA</p>
+                                <p>{{$contact->address}}</p>
                             </div>
                         </div>
                     </div><!-- featured-icon-box end-->
@@ -70,10 +70,10 @@
                         </div>
                         <div class="featured-content">
                             <div class="featured-title">
-                                <h5>Call Us On</h5>
+                                <h5>Hubungi Kami</h5>
                             </div>
                             <div class="featured-desc">
-                                <p>Front Desk: +123-456-7890 & 78</p>
+                                <p>{{$contact->phone}}</p>
                             </div>
                         </div>
                     </div><!-- featured-icon-box end-->
@@ -91,10 +91,10 @@
                         </div>
                         <div class="featured-content">
                             <div class="featured-title">
-                                <h5>Email Us</h5>
+                                <h5>Email</h5>
                             </div>
                             <div class="featured-desc">
-                                <p><a href="mailto:Supportteam@example.com">Supportteam@example.com</a></p>
+                                <p><a href="mailto:{{$contact->email}}">{{$contact->email}}</a></p>
                             </div>
                         </div>
                     </div><!-- featured-icon-box end-->
@@ -108,21 +108,17 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 widget-area">
                 <div class="widget widget_text clearfix">
-                    <div class="footer-logo">
-                        <img id="footer-logo-img" class="img-center" src="images/footer-logo.png" alt="">
-                    </div>
+                    <h3 class="widget-title">Profil</h3>
                     <div class="textwidget widget-text">
-                        <p class="pb-10 pr-30">A Blue Bowl, premium html5 template is the perfect solution
-                            for all kind of laboratories & laboratory based management websites. A complete
-                            package for the best online lab services.</p>
+                        <p class="pb-10 pr-30">{{Str::limit(strip_tags($about->desc), 200)}}</p>
                         <a class="ttm-btn ttm-btn-size-sm ttm-btn-shape-rounded ttm-btn-style-fill ttm-btn-color-dark"
-                            href="" title="">Read More!</a>
+                            href="{{route('about')}}" title="">Read More!</a>
                     </div>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 widget-area">
                 <div class="widget widget_nav_menu clearfix">
-                    <h3 class="widget-title">Usefull Links</h3>
+                    <h3 class="widget-title">Daftar Laboratorium</h3>
                     <ul id="menu-footer-quick-links">
                         <li><a href="#">About Company</a></li>
                         <li><a href="#">Scientific</a></li>
@@ -139,7 +135,7 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 widget-area">
                 <div class="widget style2 widget-out-link clearfix">
-                    <h3 class="widget-title">Recent Posts</h3>
+                    <h3 class="widget-title">Berita Terkini</h3>
                     <ul class="widget-post ttm-recent-post-list pr-5">
                         <li>
                             <a href="blog-single.html"><img src="https://via.placeholder.com/100x95.jpg"
@@ -163,20 +159,19 @@
     <div class="container">
         <div class="row copyright">
             <div class="col-sm-9">
-                <span>Copyright © 2019 Labostica Theme by <a
-                        href="https://themetechmount.com/">ThemetechMount</a></span>
+                <span>Copyright © 2021 Laboratorium Theme by <a href="https://deveureka.com/">Deveureka</a></span>
             </div>
             <div class="col-sm-3">
                 <div class="d-flex flex-row align-items-center justify-content-end social-icons">
                     <ul class="social-icons list-inline">
-                        <li class="social-facebook"><a class="tooltip-top" target="_blank" href=""
-                                data-tooltip="Facebook"><i class="ti ti-facebook"></i></a></li>
-                        <li class="social-twitter"><a class="tooltip-top" target="_blank" href=""
-                                data-tooltip="Linkedin"><i class="ti ti-linkedin"></i></a></li>
-                        <li class="social-instagram"><a class="tooltip-top" target="_blank" href=""
-                                data-tooltip="Google"><i class="ti ti-google"></i></a></li>
-                        <li class="social-twitter"><a class="tooltip-top" target="_blank" href=""
-                                data-tooltip="twitter"><i class="ti ti-twitter-alt"></i></a></li>
+                        @foreach ($contact->social_media as $social_media)
+                        <li class="social-{{$social_media['name']}}">
+                            <a class="tooltip-top" target="_blank" href="{{$social_media['url']}}"
+                                data-tooltip="{{Str::title($social_media['name'])}}">
+                                <i class="{{$social_media['icon']}}"></i>
+                            </a>
+                        </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

@@ -4,31 +4,23 @@
         <div class="row">
             <div class="col-xl-12 d-flex flex-row align-items-center">
                 <div class="top_bar_contact_item">
-                    <div class="top_bar_icon"><i class="fa fa-phone"></i></div>+123 456 7890
+                    <div class="top_bar_icon"><i class="fa fa-phone"></i></div>{{$contact->phone}}
                 </div>
                 <div class="top_bar_contact_item">
                     <div class="top_bar_icon"><i class="fa fa-envelope-o"></i></div><a
-                        href="mailto:yourdomain@gmail.com">yourdomain@gmail.com</a>
+                        href="mailto:{{$contact->email}}">{{$contact->email}}</a>
                 </div>
                 <div class="top_bar_contact_item ml-auto">
-                    <div class="top_bar_icon"><i class="fa fa-clock-o"></i></div>Working Hours - Mon - Fri:
-                    9:30 - 18:30
-                </div>
-                <div class="top_bar_contact_item">
                     <div class="top_bar_social">
                         <ul class="social-icons">
-                            <li><a class="tooltip-bottom" target="_blank" href="" data-tooltip="Facebook"
-                                    tabindex="-1"><i class="fa fa-facebook"></i></a>
+                            @foreach ($contact->social_media as $social_media)
+                            <li>
+                                <a class="tooltip-bottom" target="_blank" href="zzzzzz"
+                                    data-tooltip="{{$social_media['name']}}" tabindex="-1"><i
+                                        class="{{$social_media['icon']}}"></i>
+                                </a>
                             </li>
-                            <li><a class="tooltip-bottom" target="_blank" href="" data-tooltip="Twitter"
-                                    tabindex="-1"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li><a class="tooltip-bottom" target="_blank" href="" data-tooltip="Flickr" tabindex="-1"><i
-                                        class="fa fa-flickr"></i></a>
-                            </li>
-                            <li><a class="tooltip-bottom" target="_blank" href="" data-tooltip="Linkedin"
-                                    tabindex="-1"><i class="fa fa-linkedin"></i></a>
-                            </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -46,7 +38,7 @@
                     <div class="site-navigation d-flex flex-row">
                         <!-- site-branding -->
                         <div class="site-branding mr-auto">
-                            <a class="home-link" href="index.html" title="Labostica" rel="home">
+                            <a class="home-link" href="{{'/'}}" title="Labostica" rel="home">
                                 <img id="logo-img" class="img-center" style="width: 70px;"
                                     src="{{asset('dist/user/images/logo.png')}}" alt="logo-img">
                                 <h5>
@@ -63,108 +55,42 @@
                         <!-- menu -->
                         <nav class="main-menu menu-mobile" id="menu">
                             <ul class="menu">
-                                <li class="mega-menu-item active">
-                                    <a href="#" class="mega-menu-link">Home</a>
-                                    <ul class="mega-submenu">
-                                        <li class="active"><a href="index.html">Sample Homepage 1</a></li>
-                                        <li><a href="home-2.html">Sample Homepage 2</a></li>
-                                        <li><a href="home-3.html">Sample Homepage 3</a></li>
-                                        <li class="mega-menu-item">
-                                            <a href="#" class="mega-menu-link">Header Styles</a>
-                                            <ul class="mega-submenu">
-                                                <li><a href="index.html">Header Style 01</a></li>
-                                                <li><a target="_blank" href="header-style-02.html">Header
-                                                        Style 02</a></li>
-                                                <li><a target="_blank" href="header-style-03.html">Header
-                                                        Style 03</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
+                                <li class="mega-menu-item {{request()->routeIs('home') ? 'active' : ''}}">
+                                    <a href="{{'/'}}" class="mega-menu-link">Beranda</a>
                                 </li>
-                                <li class="mega-menu-item megamenu-fw">
-                                    <a href="#" class="mega-menu-link">Pages</a>
+                                <li class="mega-menu-item {{request()->routeIs('about') ? 'active' : ''}}">
+                                    <a href="{{route('about')}}" class="mega-menu-link">Profil</a>
+                                </li>
+                                <li
+                                    class="mega-menu-item megamenu-fw {{request()->routeIs('laboratory.*') ? 'active' : ''}}">
+                                    <a href="#" class="mega-menu-link">Laboratorium</a>
                                     <ul class="mega-submenu megamenu-content" role="menu">
                                         <li>
                                             <div class="row">
+                                                @foreach ($laboratories as $laboratory)
                                                 <div class="col-menu col-md-4">
-                                                    <h6 class="title">Page List 01</h6>
                                                     <div class="content">
                                                         <ul class="menu-col">
-                                                            <li><a href="about-us.html">About Us</a></li>
-                                                            <li><a href="about-us-2.html">About Us 2</a>
+                                                            @foreach ($laboratory as $lab)
+                                                            <li
+                                                                class="{{request()->slug == $lab->slug ? 'active' : ''}}">
+                                                                <a
+                                                                    href="{{route('laboratory.equipment', $lab->slug)}}">{{$lab->name}}</a>
                                                             </li>
-                                                            <li><a href="services-1.html">Services 1</a>
-                                                            </li>
-                                                            <li><a href="services-2.html">Services 2</a>
-                                                            </li>
+                                                            @endforeach
                                                         </ul>
                                                     </div>
                                                 </div><!-- end col-3 -->
-                                                <div class="col-menu col-md-4">
-                                                    <h6 class="title">Page List 02</h6>
-                                                    <div class="content">
-                                                        <ul class="menu-col">
-                                                            <li><a href="team.html">Team</a></li>
-                                                            <li><a href="team-details.html">Team Details</a>
-                                                            </li>
-                                                            <li><a href="contact-us-1.html">Contact Us 1</a>
-                                                            </li>
-                                                            <li><a href="contact-us-1.html">Contact Us 2</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div><!-- end col-3 -->
-                                                <div class="col-menu col-md-4">
-                                                    <h6 class="title">Page List 03</h6>
-                                                    <div class="content">
-                                                        <ul class="menu-col">
-                                                            <li><a href="pricing-plan.html">Pricing Plan</a>
-                                                            </li>
-                                                            <li><a href="faq.html">Faq</a></li>
-                                                            <li><a href="error.html">Error Page</a></li>
-                                                            <li><a href="element.html">Element</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
+                                                @endforeach
                                             </div><!-- end row -->
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="mega-menu-item">
-                                    <a href="#" class="mega-menu-link">Services</a>
-                                    <ul class="mega-submenu">
-                                        <li><a href="advanced-robotics.html">Advanced Robotics</a>
-                                        <li><a href="anatomic-pathology.html">Anatomic Pathology</a></li>
-                                        <li><a href="chemical-research.html">Chemical Research</a></li>
-                                        <li><a href="chemistry-hematology.html">Chemistry & Hematology</a>
-                                        </li>
-                                        <li><a href="environmental-testing.html">Environmental Testing</a>
-                                        </li>
-                                        <li><a href="lab-test.html">Lab Test Directory</a></li>
-                                    </ul>
+                                <li class="mega-menu-item {{request()->routeIs('blog') ? 'active' : ''}}">
+                                    <a href="{{route('blog')}}" class="mega-menu-link">Berita</a>
                                 </li>
-                                <li class="mega-menu-item">
-                                    <a href="#" class="mega-menu-link">Research</a>
-                                    <ul class="mega-submenu">
-                                        <li><a href="research-style-1.html">Research Style 1</a></li>
-                                        <li><a href="research-style-2.html">Research Style 2</a></li>
-                                        <li class="mega-menu-item">
-                                            <a href="#" class="mega-menu-link">Project Single</a>
-                                            <ul class="mega-submenu">
-                                                <li><a href="single-style-1.html">Style One</a></li>
-                                                <li><a href="single-style-2.html">Style Two</a></li>
-                                                <li><a href="single-style-3.html">Style Three</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="mega-menu-item">
-                                    <a href="#" class="mega-menu-link">Blog</a>
-                                    <ul class="mega-submenu">
-                                        <li class=""><a href="blog.html">Blog Classic</a></li>
-                                        <li class=""><a href="blog-grid.html">Blog Grid</a></li>
-                                        <li class=""><a href="blog-single.html">Blog Single View</a></li>
-                                    </ul>
+                                <li class="mega-menu-item {{request()->routeIs('contact') ? 'active' : ''}}">
+                                    <a href="{{route('contact')}}" class="mega-menu-link">Kontak</a>
                                 </li>
                             </ul>
                         </nav>

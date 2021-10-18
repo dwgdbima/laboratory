@@ -2208,3 +2208,12 @@ section.error-404 .page-content p { font-size: 18px; margin-bottom: 30px; }
 /*  Map
 /*------------------------------------------------------------------------------*/   
 #map { display: block; height: 400px; width: 100%; }
+
+/* Equipment */
+.equipment-desc{
+    padding: 1rem;
+}
+
+.equipment-desc h5{
+    font-size: 20px;
+}

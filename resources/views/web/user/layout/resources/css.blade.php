@@ -38,3 +38,5 @@
 <link rel="stylesheet" type="text/css" href="{{asset('dist/user/css/responsive.css')}}" />
 
 <link rel="stylesheet" type="text/css" href="{{asset('dist/user/css/bootstrap-datetimepicker.css')}}" />
+
+@stack('styles')

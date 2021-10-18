@@ -9,10 +9,9 @@ class About extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['banner', 'title', 'desc', 'img'];
+    protected $fillable = ['banner', 'desc', 'vision', 'mission'];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    protected $casts = [
+        'mission' => 'array',
+    ];
 }

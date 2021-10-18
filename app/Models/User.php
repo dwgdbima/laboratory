@@ -43,13 +43,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function about()
+    public function laboratory()
     {
-        return $this->hasOne(About::class);
+        return $this->hasOne(Laboratory::class);
     }
 
-    public function contact()
+    public function blogs()
     {
-        return $this->hasOne(Contact::class);
+        return $this->hasMany(Blog::class);
     }
 }

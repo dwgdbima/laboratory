@@ -118,18 +118,12 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 widget-area">
                 <div class="widget widget_nav_menu clearfix">
-                    <h3 class="widget-title">Daftar Laboratorium</h3>
+                    <h3 class="widget-title">Halaman</h3>
                     <ul id="menu-footer-quick-links">
-                        <li><a href="#">About Company</a></li>
-                        <li><a href="#">Scientific</a></li>
-                        <li><a href="#">Customer Insights</a></li>
-                        <li><a href="#">Chemistry</a></li>
-                        <li><a href="#">Free Consultation</a></li>
-                        <li><a href="#">Gemological</a></li>
-                        <li><a href="#">Meet Our Team</a></li>
-                        <li><a href="#">Forensic science</a></li>
-                        <li><a href="#">Our Services</a></li>
-                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="{{route('home')}}">Beranda</a></li>
+                        <li><a href="{{route('about')}}">Profil</a></li>
+                        <li><a href="{{route('blog')}}">Berita</a></li>
+                        <li><a href="{{route('contact')}}">Kontak</a></li>
                     </ul>
                 </div>
             </div>

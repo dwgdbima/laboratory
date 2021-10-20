@@ -20,8 +20,8 @@ class CreateLaboratoriesTable extends Migration
                 ->onDelete('cascade');
             $table->string('name');
             $table->string('banner')->nullable();
-            $table->string('phone');
-            $table->text('address');
+            $table->string('phone')->nullable();
+            $table->text('address')->nullable();
             $table->string('slug')->unique();
             $table->timestamps();
         });

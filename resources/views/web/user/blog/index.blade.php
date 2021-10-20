@@ -45,7 +45,7 @@
                         <div class="ttm-blog-classic-content">
                             <div class="ttm-post-entry-header">
                                 <div class="post-meta">
-                                    <span class="ttm-meta-line byline"><i class="fa fa-user"></i>By
+                                    <span class="ttm-meta-line byline"><i class="fas fa-user"></i>By
                                         {{$blog->user->name}}</span>
                                     <span class="ttm-meta-line entry-date"><i class="fa fa-calendar"></i><time
                                             class="entry-date published" datetime="{{$blog->created_at}}">

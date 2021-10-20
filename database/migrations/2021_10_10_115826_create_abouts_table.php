@@ -15,7 +15,6 @@ class CreateAboutsTable extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->id();
-            $table->string('banner');
             $table->text('desc');
             $table->string('vision');
             $table->json('mission');

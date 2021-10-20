@@ -2,8 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Blog;
-use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -27,6 +25,8 @@ class DatabaseSeeder extends Seeder
             TagSeeder::class,
             CategorySeeder::class,
             BlogSeeder::class,
+            ComponentSeeder::class,
+            SlideShowSeeder::class,
         ]);
     }
 }

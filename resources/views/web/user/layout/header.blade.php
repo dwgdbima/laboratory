@@ -6,4 +6,4 @@
 <title>{{ config('app.name', 'Laravel') }}</title>
 
 <!-- favicon icon -->
-<link rel="shortcut icon" href="{{asset('dist/user/images/logo.png')}}" />
+<link rel="shortcut icon" href="{{asset($coreComponent->favicon)}}" />

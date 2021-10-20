@@ -13,12 +13,15 @@ use App\Http\Controllers\Laboratory\BlogController as BlogLaboratoryUserControll
 use App\Http\Controllers\BlogController as BlogUserControler;
 use App\Http\Controllers\ContactController as ContactUserController;
 
-// Super Admin
-use App\Http\Controllers\SuperAdmin\Dashboard as DashboardSuperAdmin;
-
 // Admin
-use App\Http\Controllers\Admin\Dashboard as DashboardAdmin;
-use App\Models\Laboratory;
+use App\Http\Controllers\Admin\Dashboard as DashboardAdminController;
+use App\Http\Controllers\Admin\AboutController as AboutAdminController;
+use App\Http\Controllers\Admin\ContactController as ContactAdminController;
+use App\Http\Controllers\Admin\LaboratoryController as LaboratoryAdminController;
+use App\Http\Controllers\Admin\SlideShowController as SlideShowAdminController;
+use App\Http\Controllers\Admin\BlogController as BlogAdminController;
+
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,15 +54,26 @@ Route::get('/berita/tag/{slug}', [BlogUserControler::class, 'tag'])->name('blog.
 Route::get('/kontak', [ContactUserController::class, 'index'])->name('contact');
 
 // ADMIN
-Route::prefix('/admin/')->name('admin.')->middleware('role:admin')->group(function () {
-    Route::get('dashboard', [DashboardAdmin::class, 'index'])->name('dashboard.index');
-});
-
-// SUPER ADMIN
-Route::prefix('/super-admin/')->name('super-admin.')->middleware('role:super-admin')->group(function () {
-    Route::get('dashboard', [DashboardSuperAdmin::class, 'index'])->name('dashboard.index');
+Route::prefix('/admin/')->name('admin.')->group(function () {
+    // Main
+    Route::get('/', [DashboardAdminController::class, 'index'])->name('dashboard.index');
+    Route::get('dashboard', [DashboardAdminController::class, 'index'])->name('dashboard.index');
+    Route::get('laboratorium', [LaboratoryAdminController::class, 'index'])->name('laboratories.index');
+    Route::post('laboratorium', [LaboratoryAdminController::class, 'store'])->name('laboratories.store');
+    Route::get('laboratorium/{laboratory}/edit', [LaboratoryAdminController::class, 'edit'])->name('laboratories.edit');
+    Route::put('laboratorium/{laboratory}', [LaboratoryAdminController::class, 'update'])->name('laboratories.update');
+    Route::delete('laboratorium/{laboratory}', [LaboratoryAdminController::class, 'destroy'])->name('laboratories.destroy');
+    // Content
+    Route::get('slide-show', [SlideShowAdminController::class, 'index'])->name('slide-show.index');
+    Route::put('slide-show', [SlideShowAdminController::class, 'update'])->name('slide-show.update');
+    Route::get('profil', [AboutAdminController::class, 'index'])->name('abouts.index');
+    Route::put('profil', [AboutAdminController::class, 'update'])->name('abouts.update');
+    Route::get('kontak', [ContactAdminController::class, 'index'])->name('contacts.index');
+    Route::put('kontak', [ContactAdminController::class, 'update'])->name('contacts.update');
+    Route::get('berita', [BlogAdminController::class, 'index'])->name('blog.index');
 });
 
 Route::get('test', function () {
-    // 
-});
+    $test = request()->url();
+    dd($test);
+})->name('test');

@@ -9,7 +9,7 @@ class Chairman extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'title', 'greeting', 'email', 'social_media', 'photo'];
+    protected $fillable = ['name', 'title', 'greeting', 'email', 'social_media'];
 
     protected $casts = [
         'social_media' => 'array',

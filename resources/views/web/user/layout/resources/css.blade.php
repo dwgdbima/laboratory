@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('dist/user/css/animate.css')}}" />
 
 <!-- fontawesome -->
-<link rel="stylesheet" type="text/css" href="{{asset('dist/user/css/font-awesome.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{asset('dist/user/fontawesome/css/all.css')}}" />
 
 <!-- themify -->
 <link rel="stylesheet" type="text/css" href="{{asset('dist/user/css/themify-icons.css')}}" />
@@ -39,4 +39,13 @@
 
 <link rel="stylesheet" type="text/css" href="{{asset('dist/user/css/bootstrap-datetimepicker.css')}}" />
 
+<style>
+    .ttm-page-title-row {
+        background-image: url('{{asset($coreComponent->banner)}}')
+    }
+
+    .widget.widget-nav-menu ul li a:after {
+        /* content: "\f053"; */
+    }
+</style>
 @stack('styles')

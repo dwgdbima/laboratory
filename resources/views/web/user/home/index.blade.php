@@ -15,8 +15,8 @@
 
                 <!-- MAIN IMAGE -->
 
-                <img src="https://via.placeholder.com/1920x670.jpg" alt="" data-bgposition="center center"
-                    data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                <img src="{{asset($slideshow->slide_1)}}" alt="" data-bgposition="center center" data-bgfit="cover"
+                    data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
 
                 <!-- LAYERS -->
 
@@ -64,7 +64,7 @@
 
 
                 <!-- LAYER NR. 4 -->
-                <a href="#"
+                <a href="{{route('about')}}"
                     class="tp-caption tp-resizeme ttm-icon ttm-btn-size-md ttm-icon_element-border ttm-icon_element-color-darkgrey ttm-icon_element-style-rounded"
                     id="slide-6-layer-4" data-x="['left','left','left','left']" data-hoffset="['50','40','30','20']"
                     data-y="['bottom','bottom','bottom','bottom']" data-voffset="['193','193','100','67']"
@@ -77,12 +77,12 @@
                     data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
                     data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]">
 
-                    <i class="fa fa-user"></i>
+                    <i class="fas fa-user"></i>
                 </a>
 
 
                 <!-- LAYER NR. 5 -->
-                <a href="#"
+                <a href="{{route('blog')}}"
                     class="tp-caption tp-resizeme ttm-icon ttm-btn-size-md ttm-icon_element-border ttm-icon_element-color-darkgrey ttm-icon_element-style-rounded"
                     id="slide-6-layer-5" data-x="['left','left','left','left']" data-hoffset="['135','125','115','95']"
                     data-y="['bottom','bottom','bottom','bottom']" data-voffset="['193','193','100','67']"
@@ -95,11 +95,11 @@
                     data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
                     data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]">
 
-                    <i class="fa fa-newspaper-o"></i>
+                    <i class="fas fa-newspaper"></i>
                 </a>
 
                 <!-- LAYER NR. 6 -->
-                <a href="#"
+                <a href="{{route('contact')}}"
                     class="tp-caption tp-resizeme ttm-icon ttm-btn-size-md ttm-icon_element-border ttm-icon_element-color-darkgrey ttm-icon_element-style-rounded"
                     id="slide-6-layer-6" data-x="['left','left','left','left']" data-hoffset="['220','210','200','170']"
                     data-y="['bottom','bottom','bottom','bottom']" data-voffset="['193','193','100','67']"
@@ -112,7 +112,7 @@
                     data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
                     data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]">
 
-                    <i class="fa fa-address-book"></i>
+                    <i class="fas fa-address-book"></i>
                 </a>
             </li>
 
@@ -124,8 +124,8 @@
 
                 <!-- MAIN IMAGE -->
 
-                <img src="https://via.placeholder.com/1920x670.jpg" alt="" data-bgposition="center center"
-                    data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                <img src="{{asset($slideshow->slide_2)}}" alt="" data-bgposition="center center" data-bgfit="cover"
+                    data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
 
                 <!-- LAYERS -->
 
@@ -265,7 +265,7 @@
                         <form id="newsletter-form" method="post" action="#" data-mailchimp="true">
                             <div class="newsletter_form">
                                 <input type="email" name="email" placeholder="Email Anda...." required="">
-                                <button class="btn" type="submit"><i class="fa fa-paper-plane"></i></button>
+                                <button class="btn" type="submit"><i class="fas fa-paper-plane"></i></button>
                             </div>
                         </form>
                     </div>
@@ -305,8 +305,8 @@
                         </div>
                         <div class="featured-content featured-content-post">
                             <div class="post-meta">
-                                <span class="ttm-meta-line"><i class="fa fa-user"></i>By {{$blog->user->name}}</span>
-                                <span class="ttm-meta-line"><i class="fa fa-calendar"></i>{{$blog->publish_at}}</span>
+                                <span class="ttm-meta-line"><i class="fas fa-user"></i>By {{$blog->user->name}}</span>
+                                <span class="ttm-meta-line"><i class="fas fa-calendar"></i>{{$blog->publish_at}}</span>
                             </div>
                             <div class="post-title featured-title">
                                 <h5><a href="blog-single.html">{{$blog->title}}</a>
@@ -329,8 +329,8 @@
                     <div class="featured-imagebox featured-imagebox-post style2">
                         <div class="featured-content featured-content-post">
                             <div class="post-meta">
-                                <span class="ttm-meta-line"><i class="fa fa-user"></i>By {{$blog->user->name}}</span>
-                                <span class="ttm-meta-line"><i class="fa fa-calendar"></i>{{$blog->publish_at}}</span>
+                                <span class="ttm-meta-line"><i class="fas fa-user"></i>By {{$blog->user->name}}</span>
+                                <span class="ttm-meta-line"><i class="fas fa-calendar"></i>{{$blog->publish_at}}</span>
                             </div>
                             <div class="post-title featured-title">
                                 <h5><a href="blog-single.html">{{$blog->title}}</a>

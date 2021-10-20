@@ -40,7 +40,7 @@
                         <div class="site-branding mr-auto">
                             <a class="home-link" href="{{'/'}}" title="Labostica" rel="home">
                                 <img id="logo-img" class="img-center" style="width: 70px;"
-                                    src="{{asset('dist/user/images/logo.png')}}" alt="logo-img">
+                                    src="{{asset($coreComponent->icon)}}" alt="logo-img">
                                 <h5>
                                     LABORATORIUM <br>
                                     JURUSAN TEKNIK PERTAMBANGAN
@@ -97,7 +97,7 @@
                         <div class="header_extra d-flex flex-row align-items-center justify-content-end">
                             <div class="header_btn">
                                 <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-rounded ttm-btn-style-fill ttm-icon-btn-left ttm-btn-color-grey"
-                                    href="#"> <i class="fa fa-calendar"></i>Appointment</a>
+                                    href="#"> <i class="fas fa-shopping-cart"></i>Pemesanan</a>
                                 <div id="appointment">
                                     <h3>Keep in touch!</h3>
                                     <form class="wrap-form appointment_form clearfix" method="post" action="#">
@@ -105,7 +105,7 @@
                                             <div class="col-md-4">
                                                 <label class="form-group">
                                                     <span class="text-input">
-                                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                                        <i class="fas fa-user" aria-hidden="true"></i>
                                                         <input name="name" type="text" value="" placeholder="Your Name"
                                                             required="required">
                                                     </span>
@@ -147,7 +147,7 @@
                                             <div class="col-md-4">
                                                 <button
                                                     class="submit ttm-btn ttm-btn-size-md ttm-btn-shape-rounded ttm-btn-style-fill ttm-btn-color-dark"
-                                                    type="submit">Book appointment</button>
+                                                    type="submit">Pesan</button>
                                             </div>
                                         </div>
                                     </form>

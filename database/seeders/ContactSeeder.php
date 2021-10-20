@@ -21,22 +21,22 @@ class ContactSeeder extends Seeder
             'email' => 'jurusanpertambangan@upn.com',
             'social_media' => [
                 [
-                    'icon' => 'fa fa-facebook',
+                    'icon' => 'fab fa-facebook-f',
                     'name' => 'facebook',
                     'url' => '#'
                 ],
                 [
-                    'icon' => 'fa fa-twitter',
+                    'icon' => 'fab fa-twitter',
                     'name' => 'twitter',
                     'url' => '#'
                 ],
                 [
-                    'icon' => 'fa fa-google-plus',
+                    'icon' => 'fab fa-google-plus-g',
                     'name' => 'google+',
                     'url' => '#'
                 ],
                 [
-                    'icon' => 'fa fa-linkedin',
+                    'icon' => 'fab fa-linkedin-in',
                     'name' => 'linkedin',
                     'url' => '#'
                 ],

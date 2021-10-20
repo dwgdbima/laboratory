@@ -26,5 +26,6 @@ class ComposerServiceProvider extends ServiceProvider
     {
         View::composer(['web.user.layout.footer', 'web.user.layout.navbar'], 'App\View\Composers\ContactComposer');
         View::composer(['web.user.layout.navbar'], 'App\View\Composers\LaboratoriesComposer');
+        View::composer(['*'], 'App\View\Composers\CoreComponentComposer');
     }
 }

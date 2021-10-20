@@ -41,15 +41,11 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('web.admin.auth.login');
+        return view('web.auth.login');
     }
 
     protected function authenticated(Request $request, $user)
     {
-        if ($user->hasRole('super-admin')) {
-            return redirect()->route('super-admin.dashboard.index');
-        }
-
         return redirect()->route('admin.dashboard.index');
     }
 }

@@ -4,7 +4,7 @@
 @endpush
 @section('content')
 <!-- page-title -->
-<div class="ttm-page-title-row" style="background-image: url({{asset($about->banner)}})">
+<div class="ttm-page-title-row">
     <div class="ttm-page-title-row-inner">
         <div class="container">
             <div class="row d-flex flex-row align-items-center justify-content-between">

@@ -22,17 +22,17 @@ class ChairmanSeeder extends Seeder
             'photo' => 'dummy/460x570.jpg',
             'social_media' => [
                 [
-                    'icon' => 'fa fa-facebook',
+                    'icon' => 'fab fa-facebook-f',
                     'name' => 'facebook',
                     'url' => '#'
                 ],
                 [
-                    'icon' => 'fa fa-twitter',
+                    'icon' => 'fab fa-twitter',
                     'name' => 'twitter',
                     'url' => '#'
                 ],
                 [
-                    'icon' => 'fa fa-instagram',
+                    'icon' => 'fab fa-instagram',
                     'name' => 'instagram',
                     'url' => '#'
                 ]

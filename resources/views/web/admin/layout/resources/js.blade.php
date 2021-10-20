@@ -27,7 +27,24 @@
         }
     }
 </script>
-<script src="{{ mix('dist/admin/js/app.js') }}"></script>
+<script src="{{ asset('dist/admin/js/app.js') }}"></script>
+<script>
+    function showUpload(input, id) {
+        let url = input.value,
+             ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+        if (input.files && input.files[0]&& (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
+            let reader = new FileReader();
+
+            reader.onload = function (e) {
+                $(id).attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }else{
+            $(id).attr('src', '/assets/no_preview.png');
+        }
+    }
+</script>
 
 @include('sweetalert::alert')
 @stack('scripts')

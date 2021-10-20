@@ -9,7 +9,7 @@ class About extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['banner', 'desc', 'vision', 'mission'];
+    protected $fillable = ['desc', 'vision', 'mission'];
 
     protected $casts = [
         'mission' => 'array',

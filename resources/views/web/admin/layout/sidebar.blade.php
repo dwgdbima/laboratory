@@ -53,6 +53,33 @@
                 </a>
             </li>
             @endhasrole
+            <li class="nav-item">
+                <a href="{{route('admin.equipments.index')}}"
+                    class="nav-link {{request()->routeIs('admin.equipments.*') ? 'active' : ''}}">
+                    <i class="nav-icon fas fa-toolbox"></i>
+                    <p>
+                        Peralatan
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('admin.tests.index')}}"
+                    class="nav-link {{request()->routeIs('admin.tests.*') ? 'active' : ''}}">
+                    <i class="nav-icon fas fa-vial"></i>
+                    <p>
+                        Pengujian
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('admin.practices.index')}}"
+                    class="nav-link {{request()->routeIs('admin.practices.*') ? 'active' : ''}}">
+                    <i class="nav-icon fas fa-microscope"></i>
+                    <p>
+                        Praktikum
+                    </p>
+                </a>
+            </li>
             <li class="nav-header">Konten</li>
             @hasrole('super-admin')
             <li class="nav-item">
@@ -67,8 +94,19 @@
             @endhasrole
             @hasrole('super-admin')
             <li class="nav-item">
-                <a href="{{route('admin.abouts.index')}}"
-                    class="nav-link {{request()->routeIs('admin.abouts.*') ? 'active' : ''}}">
+                <a href="{{route('admin.component.index')}}"
+                    class="nav-link {{request()->routeIs('admin.component.*') ? 'active' : ''}}">
+                    <i class="nav-icon fas fa-paint-roller"></i>
+                    <p>
+                        Komponen
+                    </p>
+                </a>
+            </li>
+            @endhasrole
+            @hasrole('super-admin')
+            <li class="nav-item">
+                <a href="{{route('admin.about.index')}}"
+                    class="nav-link {{request()->routeIs('admin.about.*') ? 'active' : ''}}">
                     <i class="nav-icon fas fa-user"></i>
                     <p>
                         Profil
@@ -76,10 +114,19 @@
                 </a>
             </li>
             @endhasrole
+            <li class="nav-item">
+                <a href="{{route('admin.blogs.index')}}"
+                    class="nav-link {{request()->routeIs('admin.blogs.*') ? 'active' : ''}}">
+                    <i class="nav-icon fas fa-newspaper"></i>
+                    <p>
+                        Berita
+                    </p>
+                </a>
+            </li>
             @hasrole('super-admin')
             <li class="nav-item">
-                <a href="{{route('admin.contacts.index')}}"
-                    class="nav-link {{request()->routeIs('admin.contacts.*') ? 'active' : ''}}">
+                <a href="{{route('admin.contact.index')}}"
+                    class="nav-link {{request()->routeIs('admin.contact.*') ? 'active' : ''}}">
                     <i class="nav-icon fas fa-address-book"></i>
                     <p>
                         Kontak
@@ -87,15 +134,6 @@
                 </a>
             </li>
             @endhasrole
-            <li class="nav-item">
-                <a href="{{route('admin.blog.index')}}"
-                    class="nav-link {{request()->routeIs('admin.blog.*') ? 'active' : ''}}">
-                    <i class="nav-icon fas fa-newspaper"></i>
-                    <p>
-                        Berita
-                    </p>
-                </a>
-            </li>
         </ul>
     </nav>
     <!-- /.sidebar-menu -->

@@ -13,7 +13,7 @@ class StoreLaboratoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return $this->user()->getRoleNames()[0] == 'super-admin';
+        return $this->user()->hasRole('super-admin');
     }
 
     /**

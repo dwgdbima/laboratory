@@ -12,7 +12,7 @@ class ContactController extends BaseController
     public function __construct()
     {
         $this->middleware('role:super-admin');
-        $this->addMenuData('Kontak', route('admin.abouts.index'));
+        $this->addMenuData('Kontak', route('admin.contact.index'));
     }
 
     public function index()

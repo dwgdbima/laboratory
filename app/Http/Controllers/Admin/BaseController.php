@@ -21,4 +21,12 @@ class BaseController extends Controller
 
         return View::share('menuData', $this->menuData);
     }
+
+    public function superAdmin()
+    {
+        if (auth()->user()->hasRole('super-admin')) {
+            return true;
+        }
+        return false;
+    }
 }

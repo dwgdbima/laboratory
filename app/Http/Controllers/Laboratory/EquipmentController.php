@@ -10,7 +10,7 @@ class EquipmentController extends BaseController
 {
     public function index($slug)
     {
-        $equipment = $this->laboratory->equipment;
+        $equipment = $this->laboratory->equipments;
         return view('web.user.laboratory.equipment.index', compact('equipment'));
     }
 

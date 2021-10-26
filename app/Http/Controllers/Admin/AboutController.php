@@ -13,7 +13,7 @@ class AboutController extends BaseController
     public function __construct()
     {
         $this->middleware('role:super-admin');
-        $this->addMenuData('Profil', route('admin.abouts.index'));
+        $this->addMenuData('Profil', route('admin.about.index'));
     }
 
     public function index()

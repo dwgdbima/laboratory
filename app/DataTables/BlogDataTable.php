@@ -3,6 +3,7 @@
 namespace App\DataTables;
 
 use App\Models\Blog;
+use Carbon\Carbon;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -21,9 +22,15 @@ class BlogDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', '
-            <a href="#" onclick="edit(event, {{$id}})" class="btn btn-primary btn-sm">Edit</a>
-            <a href="#" onclick="_delete(event, {{$id}})" class="btn btn-danger btn-sm">Hapus</a>');
+            ->editColumn('created_at', function (Blog $blog) {
+                return Carbon::createFromFormat('Y-m-d H:i:s', $blog->created_at)->format('d-m-Y H:i:s');
+            })
+            ->addColumn('action', function (Blog $blog) {
+                $show = '<a href="' . route('blog.show', $blog->slug) . '" target="_blank" class="btn btn-info btn-sm">Lihat</a>';
+                $edit = '<a href="' . route('admin.blogs.edit', $blog->slug) . '" class="btn btn-primary btn-sm">Edit</a>';
+                $delete = '<a href="#" onclick="_delete(event, \'' . $blog->slug . '\')" class="btn btn-danger btn-sm">Hapus</a>';
+                return $show . ' ' . $edit . ' ' . $delete;
+            });
     }
 
     /**
@@ -34,7 +41,11 @@ class BlogDataTable extends DataTable
      */
     public function query(Blog $model)
     {
-        return $model->with('user')->newQuery();
+        if (request()->user()->hasRole('super-admin')) {
+            return $model->with('user')->newQuery();
+        } else {
+            return $model->where('user_id', request()->user()->id)->with('user')->newQuery();
+        }
     }
 
     /**
@@ -48,7 +59,7 @@ class BlogDataTable extends DataTable
             ->setTableId('blog-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->orderBy(0, 'asc')
+            ->orderBy(0)
             ->dom('Bfrtip')
             ->buttons(
                 Button::make('create'),
@@ -67,8 +78,10 @@ class BlogDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('title'),
-            Column::make('created_at'),
+            Column::make('title')->title('Judul'),
+            Column::make('user.name')->title('Author'),
+            Column::make('created_at')->title('Dibuat')
+                ->addClass('text-center'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

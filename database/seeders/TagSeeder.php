@@ -17,23 +17,23 @@ class TagSeeder extends Seeder
         $tags = [
             [
                 'name' => 'Batuan',
-                'slug' => 'batuan'
+                'slug' => 'Batuan'
             ],
             [
                 'name' => 'Laboratorium',
-                'slug' => 'laboratorium'
+                'slug' => 'Laboratorium'
             ],
             [
                 'name' => 'Acara',
-                'slug' => 'acara'
+                'slug' => 'Acara'
             ],
             [
                 'name' => 'Berita',
-                'slug' => 'slug'
+                'slug' => 'Berita'
             ],
             [
                 'name' => 'Alat',
-                'slug' => 'alat'
+                'slug' => 'Alat'
             ],
         ];
 

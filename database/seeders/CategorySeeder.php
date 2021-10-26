@@ -17,11 +17,11 @@ class CategorySeeder extends Seeder
         $categories = [
             [
                 'name' => 'Berita',
-                'slug' => 'berita',
+                'slug' => 'Berita',
             ],
             [
                 'name' => 'Acara',
-                'slug' => 'acara',
+                'slug' => 'Acara',
             ],
         ];
 

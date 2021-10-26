@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
         $superAdmin = User::create([
             'name' => 'Super Admin',
             'email' => 'superadmin@admin.com',
-            'password' => Hash::make('password'),
+            'password' => 'password',
         ]);
 
         $superAdmin->assignRole('super-admin');
@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
         $perpetaan = User::create([
             'name' => 'Admin Laboratorium Perpetaan',
             'email' => 'perpetaan@admin.com',
-            'password' => Hash::make('password'),
+            'password' => 'password',
         ]);
 
         $perpetaan->assignRole('admin');
@@ -49,7 +49,7 @@ class UserSeeder extends Seeder
         $mekanikatanah = User::create([
             'name' => 'Admin Laboratorium Mekanika Tanah',
             'email' => 'mekanikatanah@admin.com',
-            'password' => Hash::make('password'),
+            'password' => 'password',
         ]);
 
         $mekanikatanah->assignRole('admin');
@@ -67,7 +67,7 @@ class UserSeeder extends Seeder
         $batubara = User::create([
             'name' => 'Admin Laboratorium Batubara',
             'email' => 'batubara@admin.com',
-            'password' => Hash::make('password'),
+            'password' => 'password',
         ]);
 
         $batubara->assignRole('admin');
@@ -85,7 +85,7 @@ class UserSeeder extends Seeder
         $geofisikatambang = User::create([
             'name' => 'Admin Laboratorium Geofisika Tambang',
             'email' => 'geofisikatambang@admin.com',
-            'password' => Hash::make('password'),
+            'password' => 'password',
         ]);
 
         $geofisikatambang->assignRole('admin');
@@ -103,7 +103,7 @@ class UserSeeder extends Seeder
         $ventilasitambang = User::create([
             'name' => 'Admin Laboratorium Ventilasi Tambang',
             'email' => 'ventilasitambang@admin.com',
-            'password' => Hash::make('password'),
+            'password' => 'password',
         ]);
 
         $ventilasitambang->assignRole('admin');
@@ -121,7 +121,7 @@ class UserSeeder extends Seeder
         $peledakan = User::create([
             'name' => 'Admin Laboratorium Peledakan',
             'email' => 'peledakan@admin.com',
-            'password' => Hash::make('password'),
+            'password' => 'password',
         ]);
 
         $peledakan->assignRole('admin');
@@ -139,7 +139,7 @@ class UserSeeder extends Seeder
         $simulasikomputasitambang = User::create([
             'name' => 'Admin Laboratorium Simulasi Komputasi Tambang',
             'email' => 'simulasikomputasitambang@admin.com',
-            'password' => Hash::make('password'),
+            'password' => 'password',
         ]);
 
         $simulasikomputasitambang->assignRole('admin');
@@ -157,7 +157,7 @@ class UserSeeder extends Seeder
         $mekanikabatuan = User::create([
             'name' => 'Admin Laboratorium Mekanika Batuan',
             'email' => 'mekanikabatuan@admin.com',
-            'password' => Hash::make('password'),
+            'password' => 'password',
         ]);
 
         $mekanikabatuan->assignRole('admin');
@@ -175,7 +175,7 @@ class UserSeeder extends Seeder
         $pengolahanbahangalian = User::create([
             'name' => 'Admin Laboratorium Pengolahan Bahan Galian',
             'email' => 'pengolahanbahangalian@admin.com',
-            'password' => Hash::make('password'),
+            'password' => 'password',
         ]);
 
         $pengolahanbahangalian->assignRole('admin');
@@ -193,7 +193,7 @@ class UserSeeder extends Seeder
         $hidrometalurgi = User::create([
             'name' => 'Admin Laboratorium Hidrometalurgi',
             'email' => 'hidrometalurgi@admin.com',
-            'password' => Hash::make('password'),
+            'password' => 'password',
         ]);
 
         $hidrometalurgi->assignRole('admin');
@@ -211,7 +211,7 @@ class UserSeeder extends Seeder
         $pirometalurgi = User::create([
             'name' => 'Admin Laboratorium Pirometalurgi',
             'email' => 'pirometalurgi@admin.com',
-            'password' => Hash::make('password'),
+            'password' => 'password',
         ]);
 
         $pirometalurgi->assignRole('admin');
@@ -229,7 +229,7 @@ class UserSeeder extends Seeder
         $korosi = User::create([
             'name' => 'Admin Laboratorium Korosi',
             'email' => 'korosi@admin.com',
-            'password' => Hash::make('password'),
+            'password' => 'password',
         ]);
 
         $korosi->assignRole('admin');
@@ -247,7 +247,7 @@ class UserSeeder extends Seeder
         $pengolahanmineral = User::create([
             'name' => 'Admin Laboratorium Pengolahan Mineral',
             'email' => 'pengolahanmineral@admin.com',
-            'password' => Hash::make('password'),
+            'password' => 'password',
         ]);
 
         $pengolahanmineral->assignRole('admin');

@@ -20,8 +20,11 @@ use App\Http\Controllers\Admin\ContactController as ContactAdminController;
 use App\Http\Controllers\Admin\LaboratoryController as LaboratoryAdminController;
 use App\Http\Controllers\Admin\SlideShowController as SlideShowAdminController;
 use App\Http\Controllers\Admin\BlogController as BlogAdminController;
-
-use Illuminate\Support\Str;
+use App\Http\Controllers\Admin\ComponentController as ComponentAdminController;
+use App\Http\Controllers\Admin\EquipmentController as EquipmentAdminController;
+use App\Http\Controllers\Admin\TestController as TestAdminController;
+use App\Http\Controllers\Admin\PracticeController as PracticeAdminController;
+use App\Models\Equipment;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,22 +61,59 @@ Route::prefix('/admin/')->name('admin.')->group(function () {
     // Main
     Route::get('/', [DashboardAdminController::class, 'index'])->name('dashboard.index');
     Route::get('dashboard', [DashboardAdminController::class, 'index'])->name('dashboard.index');
+    // Laboratory
     Route::get('laboratorium', [LaboratoryAdminController::class, 'index'])->name('laboratories.index');
     Route::post('laboratorium', [LaboratoryAdminController::class, 'store'])->name('laboratories.store');
     Route::get('laboratorium/{laboratory}/edit', [LaboratoryAdminController::class, 'edit'])->name('laboratories.edit');
     Route::put('laboratorium/{laboratory}', [LaboratoryAdminController::class, 'update'])->name('laboratories.update');
     Route::delete('laboratorium/{laboratory}', [LaboratoryAdminController::class, 'destroy'])->name('laboratories.destroy');
+    // Equipment
+    Route::resource('peralatan', EquipmentAdminController::class)->parameter('peralatan', 'equipment')->names([
+        'index' => 'equipments.index',
+        'create' => 'equipments.create',
+        'store' => 'equipments.store',
+        'show' => 'equipments.show',
+        'edit' => 'equipments.edit',
+        'update' => 'equipments.update',
+        'destroy' => 'equipments.destroy',
+    ]);
+    // Test
+    Route::get('pengujian', [TestAdminController::class, 'index'])->name('tests.index');
+    Route::post('pengujian', [TestAdminController::class, 'store'])->name('tests.store');
+    Route::get('pengujian/{test}/edit', [TestAdminController::class, 'edit'])->name('tests.edit');
+    Route::put('pengujian/{test}', [TestAdminController::class, 'update'])->name('tests.update');
+    Route::delete('pengujian/{test}', [TestAdminController::class, 'destroy'])->name('tests.destroy');
+    // Practice
+    Route::get('praktikum', [PracticeAdminController::class, 'index'])->name('practices.index');
+    Route::post('praktikum', [PracticeAdminController::class, 'store'])->name('practices.store');
+    Route::get('praktikum/{practice}/edit', [PracticeAdminController::class, 'edit'])->name('practices.edit');
+    Route::put('praktikum/{practice}', [PracticeAdminController::class, 'update'])->name('practices.update');
+    Route::delete('praktikum/{practice}', [PracticeAdminController::class, 'destroy'])->name('practices.destroy');
+
     // Content
     Route::get('slide-show', [SlideShowAdminController::class, 'index'])->name('slide-show.index');
     Route::put('slide-show', [SlideShowAdminController::class, 'update'])->name('slide-show.update');
-    Route::get('profil', [AboutAdminController::class, 'index'])->name('abouts.index');
-    Route::put('profil', [AboutAdminController::class, 'update'])->name('abouts.update');
-    Route::get('kontak', [ContactAdminController::class, 'index'])->name('contacts.index');
-    Route::put('kontak', [ContactAdminController::class, 'update'])->name('contacts.update');
-    Route::get('berita', [BlogAdminController::class, 'index'])->name('blog.index');
+    Route::get('komponen', [ComponentAdminController::class, 'index'])->name('component.index');
+    Route::put('komponen', [ComponentAdminController::class, 'update'])->name('component.update');
+    Route::get('profil', [AboutAdminController::class, 'index'])->name('about.index');
+    Route::put('profil', [AboutAdminController::class, 'update'])->name('about.update');
+    Route::get('kontak', [ContactAdminController::class, 'index'])->name('contact.index');
+    Route::put('kontak', [ContactAdminController::class, 'update'])->name('contact.update');
+
+    Route::resource('berita', BlogAdminController::class)->parameter('berita', 'blog')->names([
+        'index' => 'blogs.index',
+        'create' => 'blogs.create',
+        'store' => 'blogs.store',
+        'show' => 'blogs.show',
+        'edit' => 'blogs.edit',
+        'update' => 'blogs.update',
+        'destroy' => 'blogs.destroy',
+    ]);
 });
 
+Route::post('categories', [App\Http\Controllers\CategoryController::class, 'getCategories'])->name('categories');
+Route::post('tags', [App\Http\Controllers\TagController::class, 'getTags'])->name('tags');
+Route::post('get-laboratories', [App\Http\Controllers\LaboratoryController::class, 'getLaboratories'])->name('getlaboratories');
+
 Route::get('test', function () {
-    $test = request()->url();
-    dd($test);
 })->name('test');

@@ -48,7 +48,7 @@ class LaboratoryDataTable extends DataTable
             ->setTableId('laboratory-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->orderBy(0, 'asc')
+            ->orderBy(0)
             ->dom('Bfrtip')
             ->buttons(
                 Button::make('create'),

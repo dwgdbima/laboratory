@@ -10,11 +10,11 @@
             <div class="ttm-box-view-overlay ttm-portfolio-box-view-overlay">
                 <!-- featured-thumbnail -->
                 <div class="featured-thumbnail">
-                    <a href="#"> <img class="img-fluid" src="{{$item->image}}" alt="image"></a>
+                    <a href="#"> <img class="img-fluid" src="{{asset($item->image)}}" alt="image"></a>
                 </div><!-- featured-thumbnail end-->
                 <div class="featured-iconbox ttm-media-link">
                     <a class="ttm_prettyphoto ttm_image" title="{{$item->name}}" data-rel="prettyPhoto"
-                        href="{{$item->image}}">
+                        href="{{asset($item->image)}}">
                         <i class="fa fa-expand"></i>
                     </a>
                     <a href="{{route('laboratory.equipment.show', ['slug' => Route::current()->parameter('slug'), 'id' => $item->id])}}"

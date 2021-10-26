@@ -5,7 +5,7 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <form action="{{route('admin.contacts.update')}}" method="post">
+        <form action="{{route('admin.contact.update')}}" method="post">
             @csrf
             @method('put')
             <div class="row">

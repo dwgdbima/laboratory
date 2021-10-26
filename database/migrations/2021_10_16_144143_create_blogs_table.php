@@ -22,7 +22,7 @@ class CreateBlogsTable extends Migration
             $table->string('slug')->unique();
             $table->string('thumbnail');
             $table->text('content');
-            $table->boolean('publish');
+            $table->boolean('publish')->default(true);
             $table->timestamps();
         });
     }

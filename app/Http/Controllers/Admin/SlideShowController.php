@@ -13,7 +13,7 @@ class SlideShowController extends BaseController
     public function __construct()
     {
         $this->middleware('role:super-admin');
-        $this->addMenuData('Slide Show', route('admin.abouts.index'));
+        $this->addMenuData('Slide Show', route('admin.slide-show.index'));
     }
 
     public function index()
@@ -39,16 +39,16 @@ class SlideShowController extends BaseController
             $slideshow->save();
         }
 
-        if ($request->hasFile('slide_2')) {
+        if ($request->hasFile('banner')) {
 
-            $file = $request->file('slide_2');
-            $name = 'slide_2.' . $file->getClientOriginalExtension();
+            $file = $request->file('banner');
+            $name = 'banner.' . $file->getClientOriginalExtension();
             if (Storage::exists('public/' . $name)) {
                 Storage::delete('public/' . $name);
             }
             $file->storeAs('public', $name);
 
-            $slideshow->slide_2 = 'storage/' . $name;
+            $slideshow->banner = 'storage/' . $name;
             $slideshow->save();
         }
 

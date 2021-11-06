@@ -27,7 +27,7 @@
     {
         e.preventDefault();
         
-        let url = '{{route("admin.equipments.destroy", ":id")}}';
+        let url = '{{route("admin.equipment.destroy", ":id")}}';
         url = url.replace(':id', id);
 
         swal.fire({

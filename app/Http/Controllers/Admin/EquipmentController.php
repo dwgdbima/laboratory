@@ -6,6 +6,8 @@ use App\Models\Equipment;
 use Illuminate\Http\Request;
 use App\DataTables\EquipmentDataTable;
 use App\Http\Controllers\Admin\BaseController;
+use App\Http\Requests\StoreEquipmentRequest;
+use App\Http\Requests\UpdateEquipmentRequest;
 use App\Models\Laboratory;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +20,7 @@ class EquipmentController extends BaseController
     public function __construct()
     {
         $this->middleware('role:super-admin|admin');
-        $this->addMenuData('Peralatan', route('admin.equipments.index'));
+        $this->addMenuData('Peralatan', route('admin.equipment.index'));
     }
     /**
      * Display a listing of the resource.
@@ -37,7 +39,7 @@ class EquipmentController extends BaseController
      */
     public function create()
     {
-        $this->addMenuData('Tambah Peralatan', route('admin.equipments.create'));
+        $this->addMenuData('Tambah Peralatan', route('admin.equipment.create'));
         $laboratories = Laboratory::all();
         return view('web.admin.equipment.create', compact('laboratories'));
     }
@@ -48,8 +50,10 @@ class EquipmentController extends BaseController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreEquipmentRequest $request)
     {
+        $request->validated();
+
         $file = $request->file('image');
         $name = 'equipment/' . date('dmY') . Str::random(10) . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public', $name);
@@ -57,14 +61,14 @@ class EquipmentController extends BaseController
         $request->merge(['image' => 'storage/' . $name]);
         if ($this->superAdmin()) {
             $laboratory = Laboratory::find($request->laboratory_id);
-            $laboratory->equipments()->create($request->all());
+            $laboratory->equipment()->create($request->all());
         } else {
-            auth()->user()->laboratory->equipments()->create($request->all());
+            auth()->user()->laboratory->equipment()->create($request->all());
         }
 
         Alert::toast('Berhasil Menambah Data Peralatan', 'success');
 
-        return redirect()->route('admin.equipments.index');
+        return redirect()->route('admin.equipment.index');
     }
 
     /**
@@ -86,7 +90,7 @@ class EquipmentController extends BaseController
      */
     public function edit(Equipment $equipment)
     {
-        $this->addMenuData('Edit Peralatan', route('admin.equipments.edit', $equipment->id));
+        $this->addMenuData('Edit Peralatan', route('admin.equipment.edit', $equipment->id));
         return view('web.admin.equipment.edit', compact('equipment'));
     }
 
@@ -97,8 +101,10 @@ class EquipmentController extends BaseController
      * @param  \App\Models\Equipment  $equipment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Equipment $equipment)
+    public function update(UpdateEquipmentRequest $request, Equipment $equipment)
     {
+        $request->validated();
+
         if ($request->hasFile('image')) {
             $current = Str::replace('storage', 'public', $equipment->image);
             if (Storage::exists($current)) {
@@ -118,7 +124,7 @@ class EquipmentController extends BaseController
 
         Alert::toast('Berhasil Mengubah Data Peralatan', 'success');
 
-        return redirect()->route('admin.equipments.index');
+        return redirect()->route('admin.equipment.index');
     }
 
     /**

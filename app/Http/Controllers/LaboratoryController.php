@@ -33,4 +33,15 @@ class LaboratoryController extends Controller
 
         return response()->json($response);
     }
+
+    public function getLaboratory(Request $request)
+    {
+        $laboratory = Laboratory::find($request->id);
+        $response = [
+            "id" => $laboratory->id,
+            "text" => $laboratory->name
+        ];
+
+        return response()->json($response);
+    }
 }

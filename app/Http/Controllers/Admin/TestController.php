@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\DataTables\TestDataTable;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\BaseController;
+use App\Http\Requests\StoreTestRequest;
+use App\Http\Requests\UpdateTestRequest;
 use App\Models\Laboratory;
 use App\Models\Test;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -23,8 +24,10 @@ class TestController extends BaseController
         return $dataTable->render('web.admin.test.index');
     }
 
-    public function store(Request $request)
+    public function store(StoreTestRequest $request)
     {
+        $request->validated();
+
         if ($this->superAdmin()) {
             $laboratory = Laboratory::find($request->laboratory_id);
             $laboratory->tests()->create($request->all());
@@ -41,8 +44,10 @@ class TestController extends BaseController
         return response()->json(['test' => $test, 'laboratory' => $laboratory]);
     }
 
-    public function update(Request $request, Test $test)
+    public function update(UpdateTestRequest $request, Test $test)
     {
+        $request->validated();
+
         $test->update($request->all());
         if ($this->superAdmin()) {
             $test->laboratory_id = $request->laboratory_id;

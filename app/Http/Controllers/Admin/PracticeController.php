@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\DataTables\PracticeDataTable;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\BaseController;
+use App\Http\Requests\StorePracticeRequest;
+use App\Http\Requests\UpdatePracticeRequest;
 use App\Models\Laboratory;
 use App\Models\Practice;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -22,8 +24,9 @@ class PracticeController extends BaseController
         return $dataTable->render('web.admin.practice.index');
     }
 
-    public function store(Request $request)
+    public function store(StorePracticeRequest $request)
     {
+        $request->validated();
         if ($this->superAdmin()) {
             $laboratory = Laboratory::find($request->laboratory_id);
             $laboratory->practices()->create($request->all());
@@ -40,8 +43,9 @@ class PracticeController extends BaseController
         return response()->json(['practice' => $practice, 'laboratory' => $laboratory]);
     }
 
-    public function update(Request $request, Practice $practice)
+    public function update(UpdatePracticeRequest $request, Practice $practice)
     {
+        $request->validated();
         $practice->update($request->all());
         if ($this->superAdmin()) {
             $practice->laboratory_id = $request->laboratory_id;

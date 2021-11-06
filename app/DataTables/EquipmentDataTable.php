@@ -31,7 +31,7 @@ class EquipmentDataTable extends DataTable
             })
             ->addColumn('action', function (Equipment $equipment) {
                 $show = '<a href="' . route('laboratory.equipment.show', ['slug' => $equipment->laboratory->slug, 'id' => $equipment->id]) . '" target="_blank" class="btn btn-info btn-sm">Lihat</a>';
-                $edit = '<a href="' . route('admin.equipments.edit', $equipment->id) . '" class="btn btn-primary btn-sm">Edit</a>';
+                $edit = '<a href="' . route('admin.equipment.edit', $equipment->id) . '" class="btn btn-primary btn-sm">Edit</a>';
                 $delete = '<a href="#" onclick="_delete(event, \'' . $equipment->id . '\')" class="btn btn-danger btn-sm">Hapus</a>';
                 return $show . ' ' . $edit . ' ' . $delete;
             })

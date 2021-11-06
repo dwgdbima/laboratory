@@ -13,7 +13,7 @@
                 <div class="toggle-title"><a href="#">{{$test->title}}</a></div>
                 <div class="toggle-content">
                     @isset($test->desc)
-                    <p>{{$test->desc}}</p>
+                    <p>{!!$test->desc!!}</p>
                     @else
                     <p>Tidak ada deskripsi</p>
                     @endisset

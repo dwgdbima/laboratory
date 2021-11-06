@@ -24,6 +24,7 @@ use App\Http\Controllers\Admin\ComponentController as ComponentAdminController;
 use App\Http\Controllers\Admin\EquipmentController as EquipmentAdminController;
 use App\Http\Controllers\Admin\TestController as TestAdminController;
 use App\Http\Controllers\Admin\PracticeController as PracticeAdminController;
+use App\Http\Controllers\Admin\LaboratoryDetailController as LaboratoryDetailAdminController;
 use App\Models\Equipment;
 
 /*
@@ -69,13 +70,13 @@ Route::prefix('/admin/')->name('admin.')->group(function () {
     Route::delete('laboratorium/{laboratory}', [LaboratoryAdminController::class, 'destroy'])->name('laboratories.destroy');
     // Equipment
     Route::resource('peralatan', EquipmentAdminController::class)->parameter('peralatan', 'equipment')->names([
-        'index' => 'equipments.index',
-        'create' => 'equipments.create',
-        'store' => 'equipments.store',
-        'show' => 'equipments.show',
-        'edit' => 'equipments.edit',
-        'update' => 'equipments.update',
-        'destroy' => 'equipments.destroy',
+        'index' => 'equipment.index',
+        'create' => 'equipment.create',
+        'store' => 'equipment.store',
+        'show' => 'equipment.show',
+        'edit' => 'equipment.edit',
+        'update' => 'equipment.update',
+        'destroy' => 'equipment.destroy',
     ]);
     // Test
     Route::get('pengujian', [TestAdminController::class, 'index'])->name('tests.index');
@@ -99,7 +100,7 @@ Route::prefix('/admin/')->name('admin.')->group(function () {
     Route::put('profil', [AboutAdminController::class, 'update'])->name('about.update');
     Route::get('kontak', [ContactAdminController::class, 'index'])->name('contact.index');
     Route::put('kontak', [ContactAdminController::class, 'update'])->name('contact.update');
-
+    // Blog
     Route::resource('berita', BlogAdminController::class)->parameter('berita', 'blog')->names([
         'index' => 'blogs.index',
         'create' => 'blogs.create',
@@ -109,11 +110,19 @@ Route::prefix('/admin/')->name('admin.')->group(function () {
         'update' => 'blogs.update',
         'destroy' => 'blogs.destroy',
     ]);
+    Route::get('lab-detail', [LaboratoryDetailAdminController::class, 'index'])->name('lab.index');
+    Route::put('lab-detail', [LaboratoryDetailAdminController::class, 'update'])->name('lab.update');
 });
 
 Route::post('categories', [App\Http\Controllers\CategoryController::class, 'getCategories'])->name('categories');
 Route::post('tags', [App\Http\Controllers\TagController::class, 'getTags'])->name('tags');
 Route::post('get-laboratories', [App\Http\Controllers\LaboratoryController::class, 'getLaboratories'])->name('getlaboratories');
+Route::post('get-laboratory', [App\Http\Controllers\LaboratoryController::class, 'getLaboratory'])->name('getlaboratory');
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'role:super-admin|admin']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
 
 Route::get('test', function () {
+    dd(request()->url());
 })->name('test');

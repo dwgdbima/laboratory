@@ -54,8 +54,8 @@
             </li>
             @endhasrole
             <li class="nav-item">
-                <a href="{{route('admin.equipments.index')}}"
-                    class="nav-link {{request()->routeIs('admin.equipments.*') ? 'active' : ''}}">
+                <a href="{{route('admin.equipment.index')}}"
+                    class="nav-link {{request()->routeIs('admin.equipment.*') ? 'active' : ''}}">
                     <i class="nav-icon fas fa-toolbox"></i>
                     <p>
                         Peralatan
@@ -130,6 +130,17 @@
                     <i class="nav-icon fas fa-address-book"></i>
                     <p>
                         Kontak
+                    </p>
+                </a>
+            </li>
+            @endhasrole
+            @hasrole('admin')
+            <li class="nav-item">
+                <a href="{{route('admin.lab.index')}}"
+                    class="nav-link {{request()->routeIs('admin.lab.*') ? 'active' : ''}}">
+                    <i class="nav-icon fas fa-address-book"></i>
+                    <p>
+                        Informasi Lab
                     </p>
                 </a>
             </li>

@@ -4,7 +4,7 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <form action="{{route('admin.equipments.update', $equipment->id)}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('admin.equipment.update', $equipment->id)}}" method="post" enctype="multipart/form-data">
             @csrf
             @method('put')
             <div class="row">
@@ -17,9 +17,9 @@
                     </x-forms.select-laboratory>
                     @endrole
 
-                    <x-forms.textarea id="desc" name="desc" label="Deskripsi" placeholder="Deskripsi" rows="5">
+                    <x-forms.content id="desc" name="desc" label="Deskripsi" placeholder="Deskripsi" rows="5">
                         {{$equipment->desc}}
-                    </x-forms.textarea>
+                    </x-forms.content>
                 </div>
                 <div class="col-md-6">
                     <x-forms.input id="name" name="name" value="{{$equipment->name}}" label="Nama" placeholder="Nama" />
@@ -35,16 +35,6 @@
 @endsection
 @push('scripts')
 <script>
-    $('#desc').summernote({
-        toolbar: [
-            // [groupName, [list of button]]
-            ['style', ['bold', 'italic', 'underline', 'clear']],
-            ['font', ['strikethrough', 'superscript', 'subscript']],
-            ['fontsize', ['fontsize']],
-            ['para', ['ul', 'ol', 'paragraph']],
-        ]
-    })
-
     $("#image").change(function(){ 
         showUpload(this, '#d-image');
     });

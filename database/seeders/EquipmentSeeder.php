@@ -15,7 +15,7 @@ class EquipmentSeeder extends Seeder
     public function run()
     {
         $perpetaan = Laboratory::where('slug', 'perpetaan')->first();
-        $perpetaan->equipments()->createMany([
+        $perpetaan->equipment()->createMany([
             [
                 'name' => 'Theodolite Nikon 101',
                 'desc' => '<p>Theodolit adalah salah satu alat ukur tanah yang digunakan untuk menentukan tinggi tanah dengan sudut horizontal dan sudut vertikal.</p>',

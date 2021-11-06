@@ -22,7 +22,7 @@ class Laboratory extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function equipments()
+    public function equipment()
     {
         return $this->hasMany(Equipment::class);
     }

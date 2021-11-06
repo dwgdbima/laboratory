@@ -1,5 +1,5 @@
 <script>
-    paceOptions = {
+  paceOptions = {
         catchupTime: 100,
         initialRate: .03,
         minTime: 250,
@@ -29,7 +29,7 @@
 </script>
 <script src="{{ asset('dist/admin/js/app.js') }}"></script>
 <script>
-    function showUpload(input, id) {
+  function showUpload(input, id) {
         let url = input.value,
              ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
         if (input.files && input.files[0]&& (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {

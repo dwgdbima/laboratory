@@ -13,7 +13,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="modal-create">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form action="{{route('admin.tests.store')}}" method="post">
                 @csrf
@@ -24,15 +24,15 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    @role('super-user')
+                    @role('super-admin')
                     <x-forms.select-laboratory id="laboratory_id" name="laboratory_id" label="Pilih Laboratorium"
                         placeholder="Pilih Laboratorium">
                     </x-forms.select-laboratory>
                     @endrole
-                    <x-forms.input id="create-title" name="title" label="Nama Pengujian" placeholder="Nama Pengujian"
+                    <x-forms.input id="title" name="title" label="Nama Pengujian" placeholder="Nama Pengujian"
                         :value="old('title')" required />
-                    <x-forms.text-area id="desc" name="desc" label="Deskripsi" placeholder="Deskripsi">
-                    </x-forms.text-area>
+                    <x-forms.content id="desc" name="desc" label="Deskripsi" placeholder="Deskripsi">
+                    </x-forms.content>
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -48,7 +48,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="modal-edit">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form id="form-edit" action="" method="post">
                 @csrf
@@ -60,15 +60,15 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    @role('super-user')
+                    @role('super-admin')
                     <x-forms.select-laboratory id="edit-laboratory_id" name="laboratory_id" label="Pilih Laboratorium"
                         placeholder="Pilih Laboratorium">
                     </x-forms.select-laboratory>
                     @endrole
                     <x-forms.input id="edit-title" name="title" label="Nama Pengujian" placeholder="Nama Pengujian"
                         :value="old('title')" required />
-                    <x-forms.text-area id="edit-desc" name="desc" label="Deskripsi" placeholder="Deskripsi">
-                    </x-forms.text-area>
+                    <x-forms.content id="edit-desc" name="desc" label="Deskripsi" placeholder="Deskripsi">
+                    </x-forms.content>
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -93,17 +93,57 @@
 {{$dataTable->scripts()}}
 
 <script>
+    let element = $('form').find('input[type=text]', 'textarea', 'select');
+
     if(@json($errors->first('field')) == 'store'){
+        $.ajax({
+            type: "POST",
+            url: "{{route('getlaboratory')}}",
+            data: {
+                '_token': '{{csrf_token()}}',
+                'id': "{{old('laboratory_id')}}"
+            },
+            success: function (response){
+                let $newOption = $("<option selected='selected'></option>").val(response.id).text(response.text);
+                $('#laboratory_id').append($newOption).trigger('change');
+                $('#title').val(@json(old('title')))
+                $('#desc').summernote('code', @json(old('desc')));
+            }
+        })
         $('#modal-create').modal();
     }
 
+    $('#modal-create').on('hide.bs.modal', function(){
+        element.val('');
+        $('#laboratory_id').val(null).trigger('change');
+        $('#desc').summernote('code', '<p><br></p>');
+        $('.is-invalid').removeClass('is-invalid');  
+        $('.invalid-feedback').remove();
+    });
+    
     if(@json($errors->first('field')) == 'update'){
-        $('#modal-edit').modal();
         $('#form-edit').attr('action', @json($errors->first('url')))
+        $.ajax({
+            type: "POST",
+            url: "{{route('getlaboratory')}}",
+            data: {
+                '_token': '{{csrf_token()}}',
+                'id': "{{old('laboratory_id')}}"
+            },
+            success: function (response){
+                let $newOption = $("<option selected='selected'></option>").val(response.id).text(response.text);
+                $('#edit-laboratory_id').append($newOption).trigger('change');
+                $('#edit-title').val(@json(old('title')))
+                $('#edit-desc').summernote('code', @json(old('desc')));
+            }
+        })
+        $('#modal-edit').modal();
     }
-
+    
     $('#modal-edit').on('hide.bs.modal', function(){
-        $('input').removeClass('is-invalid');
+        element.val('');
+        $('#edit-laboratory_id').val(null).trigger('change');
+        $('.is-invalid').removeClass('is-invalid');
         $('.invalid-feedback').remove();
     });
 
@@ -129,10 +169,10 @@
                 let $newOption = $("<option selected='selected'></option>").val(test.laboratory.id).text(test.laboratory.name);
 
                 $('#form-edit').attr('action', url_update);
-                $('#edit-title').val(test.title);
-                $('#edit-desc').val(test.desc);
-                
                 $("#edit-laboratory_id").append($newOption).trigger('change');
+                $('#edit-title').val(test.title);
+                $('#edit-desc').summernote('code', test.desc);
+                
                 $('#modal-edit').modal();
             }
         })

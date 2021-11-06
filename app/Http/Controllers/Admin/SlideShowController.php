@@ -26,16 +26,16 @@ class SlideShowController extends BaseController
     {
         $slideshow = SlideShow::all()->first();
 
-        if ($request->hasFile('slide_1')) {
+        if ($request->hasFile('slide_2')) {
 
-            $file = $request->file('slide_1');
-            $name = 'slide_1.' . $file->getClientOriginalExtension();
+            $file = $request->file('slide_2');
+            $name = 'slide_2.' . $file->getClientOriginalExtension();
             if (Storage::exists('public/' . $name)) {
                 Storage::delete('public/' . $name);
             }
             $file->storeAs('public', $name);
 
-            $slideshow->slide_1 = 'storage/' . $name;
+            $slideshow->slide_2 = 'storage/' . $name;
             $slideshow->save();
         }
 

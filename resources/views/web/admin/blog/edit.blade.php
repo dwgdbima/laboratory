@@ -8,13 +8,13 @@
             @csrf
             @method('put')
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <x-forms.input id="title" name="title" label="Judul" value="{{$blog->title}}" placeholder="Judul" />
-                    <x-forms.textarea id="content" name="content" label="Konten" placeholder="Konten" rows="5">
+                    <x-forms.content id="content" name="content" label="Konten" placeholder="Konten" rows="5">
                         {{$blog->content}}
-                    </x-forms.textarea>
+                    </x-forms.content>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <label for="thumbnail">Thumbnail</label>
                     <img src="{{asset($blog->thumbnail)}}" class="img-fluid mb-3" id="d-thumbnail" alt="">
                     <x-forms.input-file id="thumbnail" name="thumbnail" placeholder="Thumbnail" />
@@ -38,16 +38,6 @@
 @endsection
 @push('scripts')
 <script>
-    $('#content').summernote({
-        toolbar: [
-            // [groupName, [list of button]]
-            ['style', ['bold', 'italic', 'underline', 'clear']],
-            ['font', ['strikethrough', 'superscript', 'subscript']],
-            ['fontsize', ['fontsize']],
-            ['para', ['ul', 'ol', 'paragraph']],
-        ]
-    })
-
     $("#thumbnail").change(function(){ 
         showUpload(this, '#d-thumbnail');
     });

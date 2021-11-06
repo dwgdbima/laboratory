@@ -7,6 +7,7 @@ use App\Events\BlogCreated;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\BaseController;
+use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -47,8 +48,10 @@ class BlogController extends BaseController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreBlogRequest $request)
     {
+        $request->validated();
+
         $file = $request->file('thumbnail');
         $name = 'blog/' . date('dmY') . Str::random(10) . $file->getClientOriginalExtension();
 

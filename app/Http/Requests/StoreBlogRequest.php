@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Blog;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,11 +15,10 @@ class StoreBlogRequest extends FormRequest
      */
     public function authorize()
     {
-        if ($this->user()->hasRole('super-admin')) {
-            return true;
-        } elseif ($this->user()->hasRole('admin') && Auth::user()->id == $this->blog->user_id) {
+        if ($this->user()->hasRole('super-admin') || $this->user()->hasRole('admin')) {
             return true;
         }
+
         return false;
     }
 
@@ -31,7 +30,11 @@ class StoreBlogRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => ['required', 'string', 'max:255', 'unique:blogs,title'],
+            'content' => ['required', 'string'],
+            'thumbnail' => ['required', 'image', 'max:2048'],
+            'category' => ['required'],
+            'tag' => ['required', 'array', 'min:1'],
         ];
     }
 }

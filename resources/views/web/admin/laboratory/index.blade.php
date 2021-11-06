@@ -91,6 +91,8 @@
 {{$dataTable->scripts()}}
 
 <script>
+    let element = $('form').find('input[type=text]', 'textarea', 'select');
+
     if(@json($errors->first('field')) == 'store'){
         $('#modal-create').modal();
     }
@@ -100,8 +102,15 @@
         $('#form-edit').attr('action', @json($errors->first('url')))
     }
 
+    $('#modal-create').on('hide.bs.modal', function(){
+        element.val('');
+        $('.is-invalid').removeClass('is-invalid');
+        $('.invalid-feedback').remove();
+    });
+
     $('#modal-edit').on('hide.bs.modal', function(){
-        $('input').removeClass('is-invalid');
+        element.val('');
+        $('.is-invalid').removeClass('is-invalid');
         $('.invalid-feedback').remove();
     });
 

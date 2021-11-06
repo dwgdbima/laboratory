@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreEquipmentRequest extends FormRequest
 {
@@ -13,6 +14,10 @@ class StoreEquipmentRequest extends FormRequest
      */
     public function authorize()
     {
+        if ($this->user()->hasRole('super-admin') || $this->user()->hasRole('admin')) {
+            return true;
+        }
+
         return false;
     }
 
@@ -24,7 +29,9 @@ class StoreEquipmentRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'laboratory_id' => [Rule::requiredIf($this->user()->hasRole('super-admin'))],
+            'name' => ['required', 'string', 'max:255', 'unique:equipment,name'],
+            'image' => ['required', 'image', 'max:5000'],
         ];
     }
 }

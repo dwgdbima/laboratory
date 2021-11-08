@@ -43,9 +43,5 @@
     .ttm-page-title-row {
         background-image: url('{{asset($coreComponent->banner)}}')
     }
-
-    .widget.widget-nav-menu ul li a:after {
-        /* content: "\f053"; */
-    }
 </style>
 @stack('styles')

@@ -5,7 +5,7 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <form action="{{route('admin.abouts.update')}}" method="post">
+        <form action="{{route('admin.about.update')}}" method="post">
             @csrf
             @method('put')
             <input type="hidden" name="model" value="about">
@@ -45,7 +45,7 @@
 </div>
 <div class="card">
     <div class="card-body">
-        <form action="{{route('admin.abouts.update')}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('admin.about.update')}}" method="post" enctype="multipart/form-data">
             @csrf
             @method('put')
             <input type="hidden" name="model" value="chairman">

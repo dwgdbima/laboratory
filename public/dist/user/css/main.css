@@ -102,45 +102,6 @@ p {
     color: #fff; 
     text-shadow: none; 
 }
-
-textarea, input[type="text"], 
-input[type="password"], 
-input[type="datetime"], 
-input[type="datetime-local"], 
-input[type="date"], 
-input[type="month"], 
-input[type="time"], 
-input[type="week"], 
-input[type="number"], 
-input[type="email"], 
-input[type="url"], 
-input[type="search"], 
-input[type="tel"], 
-input[type="color"], 
-.uneditable-input, 
-select{
-    font-family: inherit;
-    -webkit-transition: border linear .2s,box-shadow linear .2s;
-    -moz-transition: border linear .2s,box-shadow linear .2s;
-    -o-transition: border linear .2s,box-shadow linear .2s;
-    transition: border linear .2s,box-shadow linear .2s;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 0;
-    vertical-align: middle;
-    width: 100%;
-    color: #8093a8;
-    padding: 12px 15px 11px;
-    border-radius: 3px;
-    font-weight: 400;
-    background-color: #fff;
-    text-transform: inherit;
-    border: 1px solid rgba(0, 43, 92, 0.08);
-    font-size: 14px;
-    outline: none;
-    line-height: inherit;
-    letter-spacing: 0px;
-}
 button, input[type="submit"], 
 input[type="button"], 
 input[type="reset"] {
@@ -158,27 +119,6 @@ input[type="reset"] {
     cursor: pointer;
     outline: none!important;
     -webkit-font-smoothing: antialiased;
-}
-
-textarea:focus, 
-input[type="text"]:focus, 
-input[type="password"]:focus, 
-input[type="datetime"]:focus, 
-input[type="datetime-local"]:focus, 
-input[type="date"]:focus, 
-input[type="month"]:focus, 
-input[type="time"]:focus, 
-input[type="week"]:focus, 
-input[type="number"]:focus, 
-input[type="email"]:focus, 
-input[type="url"]:focus, 
-input[type="tel"]:focus, 
-input[type="color"]:focus {
-    border: 1px solid #004b8d;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    -webkit-appearance: searchfield;
 }
 
 

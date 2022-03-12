@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a48e524158c8a9847f683936970139b2",
+    "content-hash": "db572e98ac5a698665be6b576a0a5919",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -61,6 +61,82 @@
                 "source": "https://github.com/asm89/stack-cors/tree/v2.0.3"
             },
             "time": "2021-03-11T06:42:03+00:00"
+        },
+        {
+            "name": "barryvdh/laravel-dompdf",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/barryvdh/laravel-dompdf.git",
+                "reference": "e3f429e97087b2ef19b83e5ed313f080f2477685"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barryvdh/laravel-dompdf/zipball/e3f429e97087b2ef19b83e5ed313f080f2477685",
+                "reference": "e3f429e97087b2ef19b83e5ed313f080f2477685",
+                "shasum": ""
+            },
+            "require": {
+                "dompdf/dompdf": "^1",
+                "illuminate/support": "^6|^7|^8|^9",
+                "php": "^7.2 || ^8.0"
+            },
+            "require-dev": {
+                "nunomaduro/larastan": "^1|^2",
+                "orchestra/testbench": "^4|^5|^6|^7",
+                "phpro/grumphp": "^1",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Barryvdh\\DomPDF\\ServiceProvider"
+                    ],
+                    "aliases": {
+                        "PDF": "Barryvdh\\DomPDF\\Facade\\Pdf"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Barryvdh\\DomPDF\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "A DOMPDF Wrapper for Laravel",
+            "keywords": [
+                "dompdf",
+                "laravel",
+                "pdf"
+            ],
+            "support": {
+                "issues": "https://github.com/barryvdh/laravel-dompdf/issues",
+                "source": "https://github.com/barryvdh/laravel-dompdf/tree/v1.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://fruitcake.nl",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/barryvdh",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-01-29T08:02:59+00:00"
         },
         {
             "name": "brick/math",
@@ -1217,6 +1293,68 @@
             "time": "2021-10-03T14:17:12+00:00"
         },
         {
+            "name": "laminas/laminas-escaper",
+            "version": "2.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laminas/laminas-escaper.git",
+                "reference": "891ad70986729e20ed2e86355fcf93c9dc238a5f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laminas/laminas-escaper/zipball/891ad70986729e20ed2e86355fcf93c9dc238a5f",
+                "reference": "891ad70986729e20ed2e86355fcf93c9dc238a5f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ~8.0.0 || ~8.1.0"
+            },
+            "conflict": {
+                "zendframework/zend-escaper": "*"
+            },
+            "require-dev": {
+                "laminas/laminas-coding-standard": "~2.3.0",
+                "phpunit/phpunit": "^9.3",
+                "psalm/plugin-phpunit": "^0.12.2",
+                "vimeo/psalm": "^3.16"
+            },
+            "suggest": {
+                "ext-iconv": "*",
+                "ext-mbstring": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Laminas\\Escaper\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Securely and safely escape HTML, HTML attributes, JavaScript, CSS, and URLs",
+            "homepage": "https://laminas.dev",
+            "keywords": [
+                "escaper",
+                "laminas"
+            ],
+            "support": {
+                "chat": "https://laminas.dev/chat",
+                "docs": "https://docs.laminas.dev/laminas-escaper/",
+                "forum": "https://discourse.laminas.dev",
+                "issues": "https://github.com/laminas/laminas-escaper/issues",
+                "rss": "https://github.com/laminas/laminas-escaper/releases.atom",
+                "source": "https://github.com/laminas/laminas-escaper"
+            },
+            "funding": [
+                {
+                    "url": "https://funding.communitybridge.org/projects/laminas-project",
+                    "type": "community_bridge"
+                }
+            ],
+            "time": "2021-09-02T17:10:53+00:00"
+        },
+        {
             "name": "laravel/framework",
             "version": "v8.55.0",
             "source": {
@@ -1581,6 +1719,72 @@
                 "source": "https://github.com/LaravelCollective/html"
             },
             "time": "2020-12-15T20:20:05+00:00"
+        },
+        {
+            "name": "laraveldaily/laravel-invoices",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelDaily/laravel-invoices.git",
+                "reference": "bb444db546ddf9b768a06a58320d96e6f7541b7b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelDaily/laravel-invoices/zipball/bb444db546ddf9b768a06a58320d96e6f7541b7b",
+                "reference": "bb444db546ddf9b768a06a58320d96e6f7541b7b",
+                "shasum": ""
+            },
+            "require": {
+                "barryvdh/laravel-dompdf": "^1",
+                "illuminate/http": "^5.5|^6|^7|^8|^9",
+                "illuminate/support": "^5.5|^6|^7|^8|^9",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.3",
+                "symfony/var-dumper": "^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelDaily\\Invoices\\InvoiceServiceProvider"
+                    ],
+                    "aliases": {
+                        "Invoice": "LaravelDaily\\Invoices\\Facades\\Invoice"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelDaily\\Invoices\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "David Lun",
+                    "email": "mysticcode@gmail.com",
+                    "homepage": "https://lun.lt",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Missing invoices for Laravel",
+            "homepage": "https://github.com/LaravelDaily/laravel-invoices",
+            "keywords": [
+                "invoice",
+                "invoices",
+                "laravel",
+                "pdf"
+            ],
+            "support": {
+                "issues": "https://github.com/LaravelDaily/laravel-invoices/issues",
+                "source": "https://github.com/LaravelDaily/laravel-invoices/tree/3.0.0"
+            },
+            "time": "2022-02-10T11:01:16+00:00"
         },
         {
             "name": "league/commonmark",
@@ -2468,6 +2672,55 @@
             "time": "2021-07-05T08:18:36+00:00"
         },
         {
+            "name": "ncjoes/office-converter",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ncjoes/office-converter.git",
+                "reference": "b0e549388380572e1cb1864283d83b819578e813"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ncjoes/office-converter/zipball/b0e549388380572e1cb1864283d83b819578e813",
+                "reference": "b0e549388380572e1cb1864283d83b819578e813",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.4"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "phpstan/phpstan": "^0.12.11",
+                "phpunit/phpunit": "7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "NcJoes\\OfficeConverter\\": "src/OfficeConverter"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chukwuemeka Nwobodo",
+                    "email": "jc.nwobodo@gmail.com"
+                }
+            ],
+            "description": "PHP Wrapper for LibreOffice",
+            "keywords": [
+                "converter",
+                "office"
+            ],
+            "support": {
+                "issues": "https://github.com/ncjoes/office-converter/issues",
+                "source": "https://github.com/ncjoes/office-converter/tree/v1.0.3"
+            },
+            "time": "2020-05-11T09:45:43+00:00"
+        },
+        {
             "name": "nesbot/carbon",
             "version": "2.52.0",
             "source": {
@@ -3018,6 +3271,118 @@
                 "source": "https://github.com/PHPOffice/PhpSpreadsheet/tree/1.18.0"
             },
             "time": "2021-05-31T18:21:15+00:00"
+        },
+        {
+            "name": "phpoffice/phpword",
+            "version": "0.18.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPOffice/PHPWord.git",
+                "reference": "be0190cd5d8f95b4be08d5853b107aa4e352759a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPOffice/PHPWord/zipball/be0190cd5d8f95b4be08d5853b107aa4e352759a",
+                "reference": "be0190cd5d8f95b4be08d5853b107aa4e352759a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-xml": "*",
+                "laminas/laminas-escaper": "^2.2",
+                "php": "^5.3.3 || ^7.0 || ^8.0"
+            },
+            "require-dev": {
+                "dompdf/dompdf": "0.8.* || 1.0.*",
+                "ext-gd": "*",
+                "ext-zip": "*",
+                "friendsofphp/php-cs-fixer": "^2.2",
+                "mpdf/mpdf": "5.7.4 || 6.* || 7.* || 8.*",
+                "php-coveralls/php-coveralls": "1.1.0 || ^2.0",
+                "phploc/phploc": "2.* || 3.* || 4.* || 5.* || 6.* || 7.*",
+                "phpmd/phpmd": "2.*",
+                "phpunit/phpunit": "^4.8.36 || ^7.0",
+                "squizlabs/php_codesniffer": "^2.9 || ^3.5",
+                "tecnickcom/tcpdf": "6.*"
+            },
+            "suggest": {
+                "dompdf/dompdf": "Allows writing PDF",
+                "ext-gd2": "Allows adding images",
+                "ext-xmlwriter": "Allows writing OOXML and ODF",
+                "ext-xsl": "Allows applying XSL style sheet to headers, to main document part, and to footers of an OOXML template",
+                "ext-zip": "Allows writing OOXML and ODF"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "0.19-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PhpOffice\\PhpWord\\": "src/PhpWord"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Baker"
+                },
+                {
+                    "name": "Gabriel Bull",
+                    "email": "me@gabrielbull.com",
+                    "homepage": "http://gabrielbull.com/"
+                },
+                {
+                    "name": "Franck Lefevre",
+                    "homepage": "https://rootslabs.net/blog/"
+                },
+                {
+                    "name": "Ivan Lanin",
+                    "homepage": "http://ivan.lanin.org"
+                },
+                {
+                    "name": "Roman Syroeshko",
+                    "homepage": "http://ru.linkedin.com/pub/roman-syroeshko/34/a53/994/"
+                },
+                {
+                    "name": "Antoine de Troostembergh"
+                }
+            ],
+            "description": "PHPWord - A pure PHP library for reading and writing word processing documents (OOXML, ODF, RTF, HTML, PDF)",
+            "homepage": "http://phpoffice.github.io",
+            "keywords": [
+                "ISO IEC 29500",
+                "OOXML",
+                "Office Open XML",
+                "OpenDocument",
+                "OpenXML",
+                "PhpOffice",
+                "PhpWord",
+                "Rich Text Format",
+                "WordprocessingML",
+                "doc",
+                "docx",
+                "html",
+                "odf",
+                "odt",
+                "office",
+                "pdf",
+                "php",
+                "reader",
+                "rtf",
+                "template",
+                "template processor",
+                "word",
+                "writer"
+            ],
+            "support": {
+                "issues": "https://github.com/PHPOffice/PHPWord/issues",
+                "source": "https://github.com/PHPOffice/PHPWord/tree/0.18.3"
+            },
+            "time": "2022-02-17T15:40:03+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -9515,5 +9880,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.2.0"
 }

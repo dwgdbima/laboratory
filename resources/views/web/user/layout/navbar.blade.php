@@ -95,64 +95,9 @@
                             </ul>
                         </nav>
                         <div class="header_extra d-flex flex-row align-items-center justify-content-end">
-                            <div class="header_btn">
+                            
                                 <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-rounded ttm-btn-style-fill ttm-icon-btn-left ttm-btn-color-grey"
-                                    href="#"> <i class="fas fa-shopping-cart"></i>Pemesanan</a>
-                                <div id="appointment">
-                                    <h3>Keep in touch!</h3>
-                                    <form class="wrap-form appointment_form clearfix" method="post" action="#">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <label class="form-group">
-                                                    <span class="text-input">
-                                                        <i class="fas fa-user" aria-hidden="true"></i>
-                                                        <input name="name" type="text" value="" placeholder="Your Name"
-                                                            required="required">
-                                                    </span>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label class="form-group">
-                                                    <span class="text-input">
-                                                        <i class="fa fa-phone" aria-hidden="true"></i>
-                                                        <input name="phone" type="tel" value=""
-                                                            placeholder="Phone Number" required="required">
-                                                    </span>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label class="form-group">
-                                                    <span class="text-input">
-                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                                                        <input name="email" type="email" value="" placeholder="Email">
-                                                    </span>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group date">
-                                                    <span class="text-input">
-                                                        <i class="fa fa-calendar"></i>
-                                                        <input type="text" value="" id="datetimepicker1">
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label class="form-group">
-                                                    <span class="text-input">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                        <input name="Note" type="text" value="" placeholder="Note">
-                                                    </span>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <button
-                                                    class="submit ttm-btn ttm-btn-size-md ttm-btn-shape-rounded ttm-btn-style-fill ttm-btn-color-dark"
-                                                    type="submit">Pesan</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+                                    href="{{ route('service') }}"> <i class="fas fa-shopping-cart"></i>Layanan</a>
                             <div class="header_search">
                                 <a href="#" class="btn-default search_btn"><i class="ti ti-search"></i></a>
                                 <div class="header_search_content">

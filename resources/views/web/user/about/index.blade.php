@@ -125,7 +125,7 @@
                                         <span class="sep_holder"><span class="sep_line"></span></span>
                                     </div>
                                     <h2 class="ttm-team-member-single-title">Sambutan</h2>
-                                    <p>{{$chairman->greeting}}</p>
+                                    <p>{!! $chairman->greeting !!}</p>
                                 </div>
                                 <div class="sep_holder_box width-100 mt-20 mb-35">
                                     <span class="sep_holder"><span class="sep_line"></span></span>

@@ -80,6 +80,25 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-header">Layanan</li>
+            <li class="nav-item">
+                <a href="{{route('admin.services.index')}}"
+                    class="nav-link {{request()->routeIs('admin.services.*') ? 'active' : ''}}">
+                    <i class="nav-icon fas fa-hand-holding"></i>
+                    <p>
+                        Layanan
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('admin.orders.index')}}"
+                    class="nav-link {{request()->routeIs('admin.orders.*') ? 'active' : ''}}">
+                    <i class="nav-icon fas fa-cart-arrow-down"></i>
+                    <p>
+                        Pesanan
+                    </p>
+                </a>
+            </li>
             <li class="nav-header">Konten</li>
             @hasrole('super-admin')
             <li class="nav-item">

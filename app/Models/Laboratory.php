@@ -36,4 +36,9 @@ class Laboratory extends Model
     {
         return $this->hasMany(Practice::class);
     }
+
+    public function services()
+    {
+        return $this->hasMany(Service::class);
+    }
 }

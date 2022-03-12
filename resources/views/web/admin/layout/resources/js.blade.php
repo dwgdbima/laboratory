@@ -44,6 +44,31 @@
             $(id).attr('src', '/assets/no_preview.png');
         }
     }
+
+    function formatRupiah(data){
+        let	number_string = data.toString(),
+            split	= number_string.split(','),
+            sisa 	= split[0].length % 3,
+            rupiah 	= split[0].substr(0, sisa),
+            ribuan 	= split[0].substr(sisa).match(/\d{1,3}/gi);
+                
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah + ',00';
+
+        return 'Rp' + rupiah;
+    }
+
+    //SweetAlert2 Toast
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timerProgressBar: true,
+        timer: 3000
+    });
 </script>
 
 @include('sweetalert::alert')
